@@ -23,6 +23,9 @@
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+/* Anchor jumps (#features, #panel…) stop below the sticky header */
+[id] { scroll-margin-top: 96px; }
+@media (max-width: 860px) { [id] { scroll-margin-top: 150px; } }
 
 body {
   margin: 0;
@@ -238,6 +241,28 @@ a:hover { color: var(--blue-dark); }
 .panel-pair .screen { padding: 10px; border-radius: 16px; background: #05080F; }
 .panel-pair .screen img { border-radius: 6px; }
 .panel-pair figcaption { margin-top: 8px; font: 700 15px 'Montserrat', sans-serif; }
+
+/* Panel rotator: three slides crossfade, 4 s each, CSS only */
+.panel-rotator .screen { padding: 10px; border-radius: 16px; background: #05080F; }
+.panel-rotator .slides { position: relative; aspect-ratio: 5 / 3; border-radius: 6px; overflow: hidden; }
+.panel-rotator .slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.panel-rotator .captions { position: relative; height: 24px; margin-top: 10px; }
+.panel-rotator .captions span { position: absolute; left: 0; top: 0; font: 700 15px 'Montserrat', sans-serif; }
+.panel-rotator .slide { opacity: 0; animation: panel-rotate 12s infinite; }
+.panel-rotator .slide:nth-child(1) { animation-delay: 0s; }
+.panel-rotator .slide:nth-child(2) { animation-delay: -8s; }
+.panel-rotator .slide:nth-child(3) { animation-delay: -4s; }
+@keyframes panel-rotate {
+  0%   { opacity: 1; }
+  29%  { opacity: 1; }
+  34%  { opacity: 0; }
+  95%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel-rotator .slide { animation: none; }
+  .panel-rotator .slide:nth-child(1) { opacity: 1; }
+}
 
 .phones { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .phones li { text-align: center; }

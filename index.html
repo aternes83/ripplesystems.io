@@ -144,7 +144,7 @@
   </section>
 
   <!-- Panel showcase -->
-  <section class="section">
+  <section class="section" id="panel">
     <div class="wrap split">
       <div>
         <h2>Bright by day. Easy at night.</h2>
@@ -155,11 +155,20 @@
           <li>Hold Light to step a color-changing bulb through its shows.</li>
         </ul>
       </div>
-      <div class="panel-pair">
-        <figure>
-          <div class="screen"><img src="/assets/panel-day.webp" alt="The touch panel in day mode" width="1000" height="600"></div>
-          <figcaption>Day mode, made for bright sun</figcaption>
-        </figure>
+      <!-- Rotates day mode, night mode and the AUX curtain, 4 s each -->
+      <div class="panel-rotator" aria-label="The touch panel: day mode, night mode, and the AUX curtain">
+        <div class="screen">
+          <div class="slides">
+            <img class="slide" src="/assets/panel-day.webp" alt="The touch panel in day mode" width="1000" height="600">
+            <img class="slide" src="/assets/panel-night.webp" alt="The touch panel in night mode" width="1400" height="839">
+            <img class="slide" src="/assets/panel-aux.webp" alt="The AUX curtain slid in, with Ozone on and Waterfall off" width="1000" height="598">
+          </div>
+        </div>
+        <div class="captions">
+          <span class="slide">Day mode, made for bright sun</span>
+          <span class="slide">Night mode, easy on the eyes</span>
+          <span class="slide">The AUX curtain slides in, named by the owner</span>
+        </div>
       </div>
     </div>
   </section>
