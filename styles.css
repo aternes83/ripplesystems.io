@@ -242,26 +242,27 @@ a:hover { color: var(--blue-dark); }
 .panel-pair .screen img { border-radius: 6px; }
 .panel-pair figcaption { margin-top: 8px; font: 700 15px 'Montserrat', sans-serif; }
 
-/* Panel rotator: four slides crossfade, 4 s each (16 s cycle), CSS only.
-   Slide n starts at 4(n-1) s; a negative delay of (16 - 4(n-1)) s puts it
+/* Panel rotator: five slides crossfade, 4 s each (20 s cycle), CSS only.
+   Slide n starts at 4(n-1) s; a negative delay of (20 - 4(n-1)) s puts it
    there without a blank first pass. Each shows for ~3.5 s, then a 0.6 s
    crossfade with the next. */
 .panel-rotator .screen { padding: 10px; border-radius: 16px; background: #05080F; }
 .panel-rotator .slides { position: relative; aspect-ratio: 5 / 3; border-radius: 6px; overflow: hidden; }
 .panel-rotator .slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.panel-rotator .captions { position: relative; height: 24px; margin-top: 10px; }
-.panel-rotator .captions span { position: absolute; left: 0; top: 0; font: 700 15px 'Montserrat', sans-serif; }
-.panel-rotator .slide { opacity: 0; animation: panel-rotate 16s infinite; }
+.panel-rotator .captions { display: grid; margin-top: 10px; }  /* stacked: as tall as the longest */
+.panel-rotator .captions span { grid-area: 1 / 1; font: 700 15px 'Montserrat', sans-serif; }
+.panel-rotator .slide { opacity: 0; animation: panel-rotate 20s infinite; }
 .panel-rotator .slide:nth-child(1) { animation-delay: 0s; }
-.panel-rotator .slide:nth-child(2) { animation-delay: -12s; }
-.panel-rotator .slide:nth-child(3) { animation-delay: -8s; }
-.panel-rotator .slide:nth-child(4) { animation-delay: -4s; }
+.panel-rotator .slide:nth-child(2) { animation-delay: -16s; }
+.panel-rotator .slide:nth-child(3) { animation-delay: -12s; }
+.panel-rotator .slide:nth-child(4) { animation-delay: -8s; }
+.panel-rotator .slide:nth-child(5) { animation-delay: -4s; }
 @keyframes panel-rotate {
-  0%     { opacity: 1; }
-  21.75% { opacity: 1; }
-  25.5%  { opacity: 0; }
-  96.25% { opacity: 0; }
-  100%   { opacity: 1; }
+  0%    { opacity: 1; }
+  17.4% { opacity: 1; }
+  20.4% { opacity: 0; }
+  97%   { opacity: 0; }
+  100%  { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .panel-rotator .slide { animation: none; }
