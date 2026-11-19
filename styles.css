@@ -311,6 +311,7 @@ a:hover { color: var(--blue-dark); }
 .contact-card .icon svg { width: 30px; height: 30px; }
 .contact-card h3 { font-size: 20px; font-weight: 800; }
 .contact-card a.email { display: inline-block; margin-top: 6px; font: 700 18px 'Montserrat', sans-serif; text-decoration: none; }
+.contact-card a.email + h3 { margin-top: 22px; }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 .site-footer { background: var(--navy); color: #C8D6F0; padding: 48px 0 32px; font-size: 15px; }
